@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2023/8/8 12:30
+# @Author  : wwz
+# @File    : base.py
+# @Software: PyCharm
 """
 Django settings for xops project.
 
@@ -19,12 +24,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-_8xnoie@q_8hfxh7n)v=%66zwa-rhe_p-=4b&2)jr5(s97=fs9'
-
+SECRET_KEY = 'django-insecure-y7=)k4cnsx1o-0n=sj7-87dqv5@#wc%t4veclr!5n0c+-8jhba'
+PUBLIC_KEY = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAN7/EKJ1O946bQU/UM0FjiIHUHUIWI81y5BduD5F0K4gYpQDdC/v29AK74PQEXTQExmj+P/IagmUeEjDZBuk9b0CAwEAAQ=="
+PRIVATE_KEY = "MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEA3v8QonU73jptBT9QzQWOIgdQdQhYjzXLkF24PkXQriBilAN0L+/b0Arvg9ARdNATGaP4/8hqCZR4SMN\
+               kG6T1vQIDAQABAkB539lNkNkZicEPvx0AEGsv+eNlMxyDmJka273YevukThVL0VLmRnVGHA9FVQIRErsTmwjxKSAYZsPcjTRC3YDBAiEA+8MEs3BRIvHW0GWc2ZudhE\
+               MWX45KnIXQ/FtMhK65s3kCIQDiwBSPqgLmsSqbGTHr8bFKtUn/MKpZiFiS4AjBqfGfZQIgamcHq5bCk9RGB5mKauW78tQvtn76xaBArQchFcqKrXECIQDB81xi+h/bJ\
+               WV1Htrln2lvppuxrPW4+XgRwZGb3XowRQIgRcsl/o6G3f9dDKPfnqpqkEomdAhRddsMCua4Bol0Uho="
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -35,6 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'account',
+    'common'
 ]
 
 MIDDLEWARE = [
@@ -45,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'account.middlewares.LoginCheck',
 ]
 
 ROOT_URLCONF = 'xops.urls'
@@ -52,8 +65,7 @@ ROOT_URLCONF = 'xops.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -65,16 +77,10 @@ TEMPLATES = [
         },
     },
 ]
-
-WSGI_APPLICATION = 'xops.wsgi.application'
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'xops',
+        'NAME': 'shangan',
         'USER': 'root',
         'PASSWORD': 'aaaaaa',
         "HOST": "8.130.45.165",
@@ -83,6 +89,11 @@ DATABASES = {
         'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"}
     }
 }
+
+WSGI_APPLICATION = 'xops.wsgi.application'
+
+# Database
+# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

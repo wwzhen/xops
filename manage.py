@@ -6,7 +6,8 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'xops.settings')
+    profile = os.environ.get("NOAH_DEVOPS_PROFILE", "develop")
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', f'xops.settings.{profile}')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

@@ -11,6 +11,7 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'xops.settings')
+profile = os.environ.get("NOAH_DEVOPS_PROFILE", "develop")
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', f'xops.settings.{profile}')
 
 application = get_asgi_application()
