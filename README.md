@@ -1,2 +1,2 @@
 # xops
-x is everything. x-ops,ops everythin
+x is everything. x-ops,ops everything
