@@ -3,12 +3,6 @@
 # @Author  : wwz18078
 # @File    : models.py
 # @Software: PyCharm
-
-# -*- coding: utf-8 -*-
-# @Time    : 2023/7/27 16:12
-# @Author  : wwz18078
-# @File    : models.py
-# @Software: PyCharm
 from django.db import models
 
 
